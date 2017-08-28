@@ -10,6 +10,14 @@ int main(int argc, char **argv)
     int s, status;
     char dest[18] = "01:23:45:67:89:AB";
 
+    if(argc < 2)
+    {
+        fprintf(stderr, "usage: %s <bt_addr>\n", argv[0]);
+        exit(2);
+    }
+
+    strncpy(dest, argv[1], 18);
+
     // allocate a socket
     s = socket(AF_BLUETOOTH, SOCK_STREAM, BTPROTO_RFCOMM);
 
