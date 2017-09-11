@@ -74,7 +74,7 @@ int main()
 {
 	sdp_session_t * session=register_service();
 	sleep(5);
-	sdpclose(session);
+	sdp_close(session);
 	return 0;
 }
 	
