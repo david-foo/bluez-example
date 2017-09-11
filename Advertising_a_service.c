@@ -1,14 +1,14 @@
 #include<unistd.h>
 #include<bluetooth/bluetooth.h>
 #include<bluetooth/sdp.h>
-#include<bluetooth/sdplib.h>
+#include<bluetooth/sdp_lib.h>
 sdp_session_t * register_service()
 {
 	uint32_t svc_uuid_int[]={0,0,0,0xABCD};
-	uint8_trfcomm_channel=11;
-	constchar * service_name="Roto-RooterDataRouter";
-	constchar * svc_dsc="Anexperimentalplumbingrouter";
-	constchar * service_prov="Roto-Rooter";
+	uint8_t rfcomm_channel=11;
+	const char * service_name="Roto-RooterDataRouter";
+	const char * svc_dsc="Anexperimentalplumbingrouter";
+	const char * service_prov="Roto-Rooter";
 	uuid_t root_uuid,l2cap_uuid,rfcomm_uuid,svc_uuid,
 	svc_class_uuid;
 	sdp_list_t * l2cap_list=0,
@@ -20,8 +20,8 @@ sdp_session_t * register_service()
 	 * profile_list=0;
 
 	sdp_data_t * channel=0;
-	sdp_profile_desc_tprofile;
-	sdp_record_trecord={0};
+	sdp_profile_desc_t profile;
+	sdp_record_t record={0};
 	sdp_session_t * session=0;
 	//setthegeneralserviceID
 	sdpuuid128create(&svc_uuid,&svc_uuid_int);
@@ -68,14 +68,14 @@ sdp_session_t * register_service()
 	sdplistfree(access_proto_list,0);
 	sdplistfree(svc_class_list,0);
 	sdplistfree(profile_list,0);
-	returnsession;
+	return session;
 	}
 int main()
 {
 	sdp_session_t * session=register_service();
 	sleep(5);
 	sdpclose(session);
-	return0;
+	return 0;
 }
 	
 	
