@@ -3,3 +3,5 @@ l2cap-server
 rfcomm-client
 rfcomm-server
 Advertising_a_service
+Searching_for_a_service_using_SDP
+
